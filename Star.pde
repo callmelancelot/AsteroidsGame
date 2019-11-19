@@ -1,4 +1,4 @@
-class Star extends floater
+class Star extends Floater
 {
 	int myX, myY;
 	public Star(){

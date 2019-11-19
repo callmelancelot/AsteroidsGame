@@ -1,9 +1,11 @@
 //your variable declarations here
 Spaceship galactica;
+Asteroid doe;
 Star[]joe;
 public void setup() 
 {
 	galactica = new Spaceship();
+	doe = new Asteroid();
 	size(800,800);
 	joe = new Star[200];
 	for(int i = 0; i <joe.length; i++){
@@ -18,13 +20,15 @@ public void draw()
 	}
 	galactica.move();
 	galactica.show();
+  doe.show();
+	doe.move();
 }
 public void keyPressed(){
 	if(key == 'd'){
-		galactica.rotate(-15); 
+		galactica.turn(-15); 
 	}
 	if(key == 'a'){
-		galactica.rotate(15);
+		galactica.turn(15);
 	}
 	if(key == 'w'){
 		galactica.accelerate(0.5);
@@ -40,4 +44,3 @@ public void keyPressed(){
 		galactica.setPointDirection((int)(Math.random()*360));
 	}
 }
-
