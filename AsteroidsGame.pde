@@ -1,11 +1,14 @@
 //your variable declarations here
 Spaceship galactica;
-Asteroid doe;
+Asteroid[] doe;
 Star[]joe;
 public void setup() 
 {
 	galactica = new Spaceship();
-	doe = new Asteroid();
+	doe = new Asteroid[20];
+for(int i = 0; i <doe.length; i++){
+    doe[i] = new Asteroid();
+  }
 	size(800,800);
 	joe = new Star[200];
 	for(int i = 0; i <joe.length; i++){
@@ -20,8 +23,11 @@ public void draw()
 	}
 	galactica.move();
 	galactica.show();
-  doe.show();
-	doe.move();
+  for(int i = 0; i <20; i++){
+    doe[i].move();
+    doe[i].show();
+    
+  }
 }
 public void keyPressed(){
 	if(key == 'd'){
