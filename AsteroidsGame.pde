@@ -1,13 +1,13 @@
 //your variable declarations here
 Spaceship galactica;
-Asteroid[] doe;
+ArrayList <Asteroid> doe;
 Star[]joe;
 public void setup() 
 {
 	galactica = new Spaceship();
-	doe = new Asteroid[20];
-for(int i = 0; i <doe.length; i++){
-    doe[i] = new Asteroid();
+	doe = new ArrayList<Asteroid>();
+  for(int i = 0; i <50; i++){
+    doe.add(new Asteroid());
   }
 	size(800,800);
 	joe = new Star[200];
@@ -23,9 +23,14 @@ public void draw()
 	}
 	galactica.move();
 	galactica.show();
-  for(int i = 0; i <20; i++){
-    doe[i].move();
-    doe[i].show();
+  for(int i = 0; i <doe.size(); i++){
+    doe.get(i).move();
+    doe.get(i).show();
+    int x = (int)dist((float)doe.get(i).myCenterX, (float)doe.get(i).myCenterY, (float)galactica.myCenterX, (float)galactica.myCenterY);
+    if(x<=20){
+      doe.remove(i);
+      doe.add(new Asteroid());
+    }
     
   }
 }
@@ -37,10 +42,10 @@ public void keyPressed(){
 		galactica.turn(15);
 	}
 	if(key == 'w'){
-		galactica.accelerate(0.5);
+		galactica.accelerate(0.1);
 	}
 	if(key == 's'){
-		galactica.accelerate(-0.5);
+		galactica.accelerate(-0.1);
 	}
 	if(key == 'f'){
 		galactica.setX((int)(Math.random()*800));
