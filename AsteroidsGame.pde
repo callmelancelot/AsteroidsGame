@@ -2,9 +2,11 @@
 Spaceship galactica;
 ArrayList <Asteroid> doe;
 Star[]joe;
+ArrayList<Bullet> toe;
 public void setup() 
 {
-	galactica = new Spaceship();
+	toe = new ArrayList<Bullet>();
+  galactica = new Spaceship();
 	doe = new ArrayList<Asteroid>();
   for(int i = 0; i <50; i++){
     doe.add(new Asteroid());
@@ -21,6 +23,11 @@ public void draw()
 	for(int i = 0; i <200; i++){
 		joe[i].show();
 	}
+  for (int t = 0; t < toe.size(); t++)
+  {
+   toe.get(t).show();
+   toe.get(t).move();
+    }
 	galactica.move();
 	galactica.show();
   for(int i = 0; i <doe.size(); i++){
@@ -31,6 +38,7 @@ public void draw()
       doe.remove(i);
       doe.add(new Asteroid());
     }
+    
     
   }
 }
@@ -54,4 +62,7 @@ public void keyPressed(){
 		galactica.setDirectionY(0.0);
 		galactica.setPointDirection((int)(Math.random()*360));
 	}
+  if(key == ' '){
+    toe.add(new Bullet(galactica));
+  }
 }
