@@ -62,7 +62,7 @@ public void keyPressed(){
 		galactica.setDirectionY(0.0);
 		galactica.setPointDirection((int)(Math.random()*360));
 	}
-  if(key == ' '){
+  if(key == 't'){
     toe.add(new Bullet(galactica));
   }
 }
